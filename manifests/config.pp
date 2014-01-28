@@ -13,7 +13,7 @@ class nsswitch::config {
     
   case $::operatingsystem {
       
-    /(?:Debian)/: {
+    /(?:Debian|Ubuntu)/: {
       if ($module_type == 'ldap') {
         file { $nsswitch::params::libnss:
           ensure  => symlink,
