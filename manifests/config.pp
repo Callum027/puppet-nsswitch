@@ -12,19 +12,8 @@ class nsswitch::config {
   }
     
   case $::operatingsystem {
-      
-    /(?:Debian|Ubuntu)/: {
+    /(?i:Redhat|CentOS|Debian|Ubuntu)/: {
       if ($module_type == 'ldap') {
-        file { $nsswitch::params::libnss:
-          ensure  => symlink,
-          target  => "${nsswitch::params::ldap_cfg}",
-          require => File["${nsswitch::params::ldap_cfg}"]
-        }
-      }
-    }
-
-    /(?i:Redhat|CentOS)/: {
-      if ($operatingsystemrelease =~ /^6\./ and $module_type == 'ldap') {
         file { '/etc/nslcd.conf':
           ensure  => present,
           owner   => 'root',
