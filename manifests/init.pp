@@ -27,10 +27,60 @@
 #
 
 class nsswitch (
+	$module_type = 'none',
+	$ensure      = 'present',
+	
+	$threads,
+	$uid,
+	$gid,
+
 	$uri         = false,
 	$base        = false,
-	$module_type = 'none',
-	$ensure      = 'present') {
+	$ldap_version,
+	$binddn,
+	$bindpw,
+	$rootpwmoddn,
+	$rootpwmodpw,
+	
+	$sasl_mech,
+	$sasl_realm,
+	$sasl_authcid,
+	$sasl_authzid,
+	
+	$sasl_secprops,
+	$sasl_canonicalize,
+	
+	$krb5_ccname,
+	
+	$base,
+	$scope,
+	$deref,
+	$referrals,
+	$filter,
+	$map,
+	
+	$bind_timelimit,
+	$timelimit,
+	$idle_timelimit,
+	$reconnect_sleeptime,
+	$reconnect_retrytime,
+	
+	$ssl,
+	$tls_reqcert,
+	$tls_cacertdir,
+	$tls_cacertfile,
+	$tls_randfile,
+	$tls_cipher,
+	$tls_cert,
+	$tls_key,
+	
+	$pagesize,
+	$nss_initgroups_ignoreusers,
+	$nss_min_uid,
+	$validnames,
+	$ignorecase,
+	$pam_authz_search,
+	$pam_password_prohibit_message) {
 
 	include nsswitch::params
 	
@@ -56,5 +106,4 @@ class nsswitch (
 	}
 	
 	include nsswitch::config
-
 }
