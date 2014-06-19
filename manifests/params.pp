@@ -5,17 +5,18 @@ class nsswitch::params {
   
     /(?i:Debian|Ubuntu)/: {
       
-      $package = [ 'nscd', 'libnss-ldap', 'sudo-ldap' ]
-      
+      #$package = [ 'libnss-ldapd', 'sudo-ldap' ]
+      $package = [ 'libnss-ldapd' ]
+
       $owner    = 'root'
       $group    = 'root'
       $config   = '/etc/nsswitch.conf'
       $ldap_cfg = '/etc/ldap/ldap.conf'
-      $libnss   = '/etc/libnss-ldap.conf'
+      $libnss   = '/etc/nslcd.conf'
       
-      $service     = 'nscd'
-      $script      = 'nscd'
-      $pattern     = 'nscd'
+      $service     = 'nslcd'
+      $script      = 'nslcd'
+      $pattern     = 'nslcd'
       $service_cfg = $config
 
       $databases_ldap = [ 
@@ -25,8 +26,8 @@ class nsswitch::params {
         'set *[self::database = "shadow"]/service[2] ldap',
         'set *[self::database = "group" ]/service[1] compat',
         'set *[self::database = "group" ]/service[2] ldap',
-	'set *[self::database = "sudoers" ]/service[1] compat',
-	'set *[self::database = "sudoers" ]/service[2] ldap'
+	# 'set *[self::database = "sudoers" ]/service[1] compat',
+	# 'set *[self::database = "sudoers" ]/service[2] ldap'
         ]
 
       $databases_none = [
