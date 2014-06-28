@@ -31,8 +31,11 @@ class nsswitch (
 	$ensure                        = 'present',
 	
 	$threads                       = false,
-	$uid,
-	$gid,
+	$uid                           = 'nslcd',
+	$gid                           = $::operatingsystem ? {
+		/(?i:Redhat|CentOS)/	=> 'ldap',
+		default			=> 'nslcd',
+	},
 
 	$uri                           = false,
 	$base                          = false,
