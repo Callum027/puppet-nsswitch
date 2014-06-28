@@ -1,0 +1,8 @@
+name    'torian-nsswitch'
+version '0.1.0'
+source 'UNKNOWN'
+author 'torian'
+license 'GPLv2'
+summary 'nsswitch LDAP configuration module'
+description 'Configures the nsswitch service for LDAP.'
+project_page 'UNKNOWN'
