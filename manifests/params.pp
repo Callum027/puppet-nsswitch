@@ -18,6 +18,7 @@ class nsswitch::params {
       $script      = 'nslcd'
       $pattern     = 'nslcd'
       $service_cfg = $libnss
+      $service_pkg = 'libnss-ldapd'
 
       $databases_ldap = [ 
         'set *[self::database = "passwd"]/service[1] compat',
