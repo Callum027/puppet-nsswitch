@@ -9,8 +9,12 @@ threads <%= @threads %>
 uid <%= @uid %>
 gid <%= @gid %>
 
+<% if @uri -%>
 uri  <%= @uri %>
+<% end -%>
+<% if @base -%>
 base <%= @base %>
+<% end -%>
 <% if @ldap_version -%>
 ldap_version <%= @ldap_version %>
 <% end -%>
