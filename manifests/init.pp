@@ -38,7 +38,6 @@ class nsswitch (
 	},
 
 	$uri                           = false,
-	$base                          = false,
 	$ldap_version                  = false,
 	$binddn                        = false,
 	$bindpw                        = false,
